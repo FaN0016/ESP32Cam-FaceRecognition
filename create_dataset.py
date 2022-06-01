@@ -3,7 +3,7 @@ import numpy as numpy
 
 faceDetect = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 stream = cv2.VideoCapture('http://192.168.1.4/mjpeg/1')
-id = input('Masukkan nama User:')
+id = input('Masukkan id User:')
 sampleNum = 0;
 while(True): 
     ret,img =stream.read();
