@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 import os 
 
+
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer.yml')
-cascadePath = "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -16,9 +16,9 @@ id = 0
 names = ['None', 'Farhan'] 
 
 # Initialize and start realtime video capture
-cam = cv2.VideoCapture('http://192.168.1.4/mjpeg/1')
-cam.set(3, 640) # set video widht
-cam.set(4, 480) # set video height
+cam = cv2.VideoCapture('http://192.168.1.7/mjpeg/1')
+cam.set(16, 1280) # set video widht
+cam.set(9, 720) # set video height
 
 # Define min window size to be recognized as a face
 minW = 0.1*cam.get(3)
@@ -59,8 +59,7 @@ while True:
     
     cv2.imshow('camera',img)
     
-    k = cv2.waitKey(10) & 0xff # Press 'ESC' for exiting video
-    if k == 27:
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 # Do a bit of cleanup
